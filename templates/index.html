@@ -2,22 +2,96 @@
 <html>
 <head>
     <title>Gender Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            width: 350px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-top: 10px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555555;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid #cccccc;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        h3 {
+            text-align: center;
+            margin-top: 20px;
+            color: #333333;
+        }
+    </style>
 </head>
 <body>
-    <h2>Predict Gender from Voice Features</h2>
-    <form action="/predict" method="post">
-        <label>Mean Frequency:</label>
-        <input type="text" name="meanfreq" required><br><br>
+    <div class="container">
+        <h2>Predict Gender from Voice</h2>
+        <form action="/predict" method="post">
+            <label>Mean Frequency:</label>
+            <input type="text" name="meanfreq" required>
 
-        <label>Standard Deviation:</label>
-        <input type="text" name="sd" required><br><br>
+            <label>Standard Deviation:</label>
+            <input type="text" name="sd" required>
 
-        <label>Median Frequency:</label>
-        <input type="text" name="median" required><br><br>
+            <label>Median Frequency:</label>
+            <input type="text" name="median" required>
 
-        <button type="submit">Predict</button>
-    </form>
+            <button type="submit">Predict</button>
+        </form>
 
-    <h3>{{ prediction_text }}</h3>
+        {% if prediction_text %}
+            <h3>{{ prediction_text }}</h3>
+        {% endif %}
+    </div>
 </body>
 </html>
