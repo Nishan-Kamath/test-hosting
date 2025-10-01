@@ -5,6 +5,9 @@ from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.ensemble import RandomForestClassifier
 import joblib
 
+import sklearn
+print(sklearn.__version__)
+
 # Load dataset
 url = "https://raw.githubusercontent.com/primaryobjects/voice-gender/master/voice.csv"
 df = pd.read_csv('voice.csv')
