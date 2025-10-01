@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gender Prediction</title>
+</head>
+<body>
+    <h2>Predict Gender from Voice Features</h2>
+    <form action="/predict" method="post">
+        <label>Mean Frequency:</label>
+        <input type="text" name="meanfreq" required><br><br>
+
+        <label>Standard Deviation:</label>
+        <input type="text" name="sd" required><br><br>
+
+        <label>Median Frequency:</label>
+        <input type="text" name="median" required><br><br>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    <h3>{{ prediction_text }}</h3>
+</body>
+</html>
